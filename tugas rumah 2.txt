@@ -1,0 +1,26 @@
+//join
+SELECT tabcustomer.`customer_id`, customer_name, customer_addres,
+order_id, order_date, qyt, amount 
+FROM tabcustomer
+INNER JOIN taborders
+ON tabcustomer.`customer_id` = taborders.`customer_id`
+
+SELECT tabcustomer.`customer_id`, customer_name, customer_addres,
+order_id, order_date, qyt, amount 
+FROM tabcustomer
+LEFT OUTER JOIN taborders
+ON tabcustomer.`customer_id` = taborders.`customer_id`
+
+
+//union
+SELECT tabcustomer.`customer_id`, customer_name, customer_addres,
+order_id, order_date, qyt, amount 
+FROM tabcustomer
+INNER JOIN taborders
+ON tabcustomer.`customer_id` = taborders.`customer_id`
+UNION ALL
+SELECT tabcustomer.`customer_id`, customer_name, customer_addres,
+order_id, order_date, qyt, amount 
+FROM tabcustomer
+LEFT OUTER JOIN taborders
+ON tabcustomer.`customer_id` = taborders.`customer_id`

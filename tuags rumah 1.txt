@@ -1,0 +1,20 @@
+//A
+SELECT tab_matakuliah.`kd_mk`, tab_matakuliah.`nama_mk`, tab_ambilmk.`jumlah_mhs`
+FROM tab_matakuliah
+INNER JOIN tab_ambilmk
+ON tab_matakuliah.`kd_mk` = tab_ambilmk.`kd_mk`
+WHERE jumlah_mhs = 40
+
+//B
+SELECT tabinstruktur.`nip`, nama_ins, jurusan, asal_kota, nama_mk
+FROM tabinstruktur, tab_matakuliah, tab_ambilmk
+WHERE tab_matakuliah.`kd_mk` = tab_ambilmk.`kd_mk` 
+AND tabinstruktur.`nip` = tab_ambilmk.`nip`
+AND tabmatakuliah.`nama_mk` = "Basis Data"
+
+C//
+SELECT tabinstruktur.`nip`, nama_ins, jurusan, asal_kota
+FROM tabinstruktur
+LEFT OUTER JOIN tab_ambilmk
+ON tabinstruktur.`nip` = tab_ambilmk.`nip`
+WHERE tab_ambilmk.`nip` IS NULL

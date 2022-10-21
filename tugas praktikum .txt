@@ -1,0 +1,6 @@
+SELECT COUNT(DISTINCT tabelmahasiswa.`nim`) AS mahasiswa_yang_mengambil_matkul FROM tabelmahasiswa INNER JOIN tabel_ambil_mk ON tabelmahasiswa.`nim` = tabel_ambil_mk.`
+SELECT jenis_kelamin, COUNT(jenis_kelamin)
+AS jumlah FROM mahasiswa LEFT OUTER JOIN ambil_mk
+ON mahasiswa.`nim` = ambil_mk.`nim`
+WHERE ambil_mk.`nim` IS NULL
+GROUP BY jenis_kelamin
